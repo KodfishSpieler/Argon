@@ -1,0 +1,28 @@
+plugins {
+    id 'net.fabricmc.fabric-loom' version '1.18.4'
+    id 'com.modrinth.minotaur' version '2.+'
+}
+
+version = '26.3'
+group = 'com.argon'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    minecraft "com.mojang:minecraft:26.3"
+    implementation "net.fabricmc:fabric-loader:0.19.5"
+}
+
+modrinth {
+    token = System.getenv("MODRINTH_TOKEN")
+    projectId = "gUbHyNSB"
+    versionNumber = project.version
+    versionName = "Argon Library ${project.version}"
+    changelog = "Initial release of Argon library for Minecraft 26.3."
+    versionType = "release"
+    uploadFile = jar
+    gameVersions = ["26.3"]
+    loaders = ["fabric"]
+}
